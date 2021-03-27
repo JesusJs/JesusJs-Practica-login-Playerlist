@@ -10,7 +10,7 @@ import { PlayersService } from '../../services/players.service';
 export class PlayersComponent implements OnInit {
 
   players = [];
-  playerInfo: any;
+  playerInfo = { id: '', abbreviation: '', city: '', conference: '', division: ''}
   data: any;
   expanded = '';
   constructor( private playerlist: PlayersService) { }
@@ -26,7 +26,7 @@ export class PlayersComponent implements OnInit {
     this.playerlist.getInfoPlayers(id).subscribe( (res: any) => {
 
 
-      console.log(res.data);
+      this.expanded = id;
       this.playerInfo = res.data;
       this.dtTrigger.next();
 

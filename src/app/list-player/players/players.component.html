@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr (click)="viewDetail(j.id)" *ngFor="let j of players;  index as i" (click)="expanded = j.id">
+            <tr *ngFor="let j of players" (click)="viewDetail(j.id)">
                 <td>{{j.id}}
                     <p class="pt-4" [hidden]="expanded != j.id">{{playerInfo.id}} </p>
                 </td>

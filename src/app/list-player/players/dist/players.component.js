@@ -21,7 +21,7 @@ var PlayersComponent = /** @class */ (function () {
     PlayersComponent.prototype.viewDetail = function (id) {
         var _this = this;
         this.playerlist.getInfoPlayers(id).subscribe(function (res) {
-            console.log(res.data);
+            _this.expanded = id;
             _this.playerInfo = res.data;
             _this.dtTrigger.next();
         });
