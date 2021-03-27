@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { PlayersService } from '../../services/players.service';
-import { map, catchError } from 'rxjs/operators';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-players',
@@ -15,16 +14,29 @@ export class PlayersComponent implements OnInit {
 
   constructor( private playerlist: PlayersService) { }
 
+  dtOptions: DataTables.Settings = {};
+  dtTrigger = new Subject();
 
   ngOnInit(): void {
+      this.dtOptions = {
+        pagingType: 'full_numbers',
+        pageLength: 5
+      };
 
-     this.playerlist.getPlayers().subscribe( (res: any) =>{
+      this.playerlist.getPlayers().subscribe( (res: any) =>{
 
-      console.log(res.data)
-      this.players = res.data;
-
+       console.log(res.data)
+       this.players = res.data;
+       this.dtTrigger.next();
     });
-  }
+
+
+
+    }
+
+    ngOnDestroy(): void {
+      this.dtTrigger.unsubscribe();
+    }
 
 
 
