@@ -13,6 +13,7 @@ var PlayersComponent = /** @class */ (function () {
     function PlayersComponent(playerlist) {
         this.playerlist = playerlist;
         this.players = [];
+        this.playerInfo = { id: '', abbreviation: '', city: '', conference: '', division: '' };
         this.expanded = '';
         this.dtOptions = {};
         this.dtTrigger = new rxjs_1.Subject();
@@ -22,8 +23,7 @@ var PlayersComponent = /** @class */ (function () {
         var _this = this;
         this.playerlist.getInfoPlayers(id).subscribe(function (res) {
             _this.expanded = id;
-            _this.playerInfo = res.data;
-            _this.dtTrigger.next();
+            _this.playerInfo = res;
         });
     };
     PlayersComponent.prototype.ngOnInit = function () {

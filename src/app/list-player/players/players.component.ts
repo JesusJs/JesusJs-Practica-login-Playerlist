@@ -21,19 +21,15 @@ export class PlayersComponent implements OnInit {
   mostrar: boolean = false;
 
 
-  viewDetail(id){
 
+  viewDetail(id: string){
     this.playerlist.getInfoPlayers(id).subscribe( (res: any) => {
-
-
       this.expanded = id;
-      this.playerInfo = res.data;
-      this.dtTrigger.next();
+      this.playerInfo = res;
 
     });
-
-
   }
+
 
   ngOnInit(): void {
       this.dtOptions = {

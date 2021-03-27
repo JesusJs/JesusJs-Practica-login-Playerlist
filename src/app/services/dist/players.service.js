@@ -29,7 +29,7 @@ var PlayersService = /** @class */ (function () {
         var httpHeaders = new http_1.HttpHeaders({
             'x-rapidapi-key': "" + this.apikey
         });
-        return this.httpClient.get("" + this.urlInfo, { headers: httpHeaders });
+        return this.httpClient.get(this.urlInfo + "/" + id, { headers: httpHeaders });
     };
     PlayersService = __decorate([
         core_1.Injectable({

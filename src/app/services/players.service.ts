@@ -45,7 +45,7 @@ export class PlayersService {
 
   });
 
-    return this.httpClient.get(`${this.urlInfo}`, {headers: httpHeaders});
+    return this.httpClient.get(`${this.urlInfo}/${id}`, {headers: httpHeaders});
 
 }
 
