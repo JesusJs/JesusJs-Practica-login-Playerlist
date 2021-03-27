@@ -13,20 +13,20 @@
                             <form (ngSubmit)="login(f)" #f="ngForm" class="log-content">
                                 <h1>SIGN IN </h1>
                                 <div class="log-body">
-                                    <span *ngIf="f.submitted && f.controls['user'].errors" class="text-danger">
+                                    <div class="form-group myr-top">
+                                        <p>User</p>
+                                        <span *ngIf="f.submitted && f.controls['user'].errors" class="text-danger">
                                     User required
                                     </span>
-                                    <div class="form-group myr-top">
-
                                         <input type="text" name="user" class="form-control" placeholder="User" pattern="[a-za]*" [(ngModel)]="usuario.user" required>
                                     </div>
 
-                                    <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger">
-                                      passord required
-                                      </span>
 
                                     <div class="form-group myr-top">
-                                        <label>Password</label>
+                                        <p>Password</p>
+                                        <span *ngIf="f.submitted && f.controls['password'].errors" class="text-danger">
+                                        passord required
+                                        </span>
                                         <input type="password" name="password" class="form-control" placeholder="Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [(ngModel)]="usuario.password" required>
                                     </div>
 
@@ -36,17 +36,19 @@
                                       </span>
 
                                     <div class="form-group myr-top align-items-start">
-                                        <input type="checkbox" name="check" id="remember" #isActive="ngModel" [(ngModel)]="usuario.check" required>
-                                        <p class="form-group">I accept policy </p>
+                                        <p>
+                                            <input class="checkbox" type="checkbox" name="check" id="remember" #isActive="ngModel" [(ngModel)]="usuario.check" required> I accept policy
+                                            <a href="forgotpassword.html " class="pull-right ">Forgot Password</a>
+                                        </p>
                                     </div>
 
 
                                     <div class="log-btn text-center ">
-                                        <button type="submit" class="btn btn-outlet-primary ">Login</button>
+                                        <button type="submit" class="btn btn-outline-info">Login</button>
                                     </div>
                                     <div class="log-bottom-cotent ">
-                                        <p>Creat an account<a href="signup.html ">Sign Up</a>
-                                            <a href="forgotpassword.html " class="pull-right ">Forgot Password</a>
+                                        <p>Creat an account <a href="signup.html ">Sign Up</a>
+
                                         </p>
                                     </div>
                                 </div>

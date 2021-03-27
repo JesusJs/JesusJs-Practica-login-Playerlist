@@ -10,14 +10,30 @@ import { PlayersService } from '../../services/players.service';
 export class PlayersComponent implements OnInit {
 
   players = [];
+  playerInfo: any;
   data: any;
-
+  expanded = '';
   constructor( private playerlist: PlayersService) { }
 
   dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
 
   mostrar: boolean = false;
+
+
+  viewDetail(id){
+
+    this.playerlist.getInfoPlayers(id).subscribe( (res: any) => {
+
+
+      console.log(res.data);
+      this.playerInfo = res.data;
+      this.dtTrigger.next();
+
+    });
+
+
+  }
 
   ngOnInit(): void {
       this.dtOptions = {
@@ -31,6 +47,10 @@ export class PlayersComponent implements OnInit {
        this.players = res.data;
        this.dtTrigger.next();
     });
+
+
+
+
 
 
 
