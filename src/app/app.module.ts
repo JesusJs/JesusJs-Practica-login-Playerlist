@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { PlayersComponent } from './list-player/players/players.component';
-import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { DataTablesModule } from "angular-datatables";
@@ -18,7 +17,6 @@ import { DataTablesModule } from "angular-datatables";
     AppComponent,
     LoginComponent,
     PlayersComponent,
-    NavbarComponent
   ],
   imports: [
     BrowserModule,

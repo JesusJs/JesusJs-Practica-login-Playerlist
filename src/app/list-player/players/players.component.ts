@@ -17,10 +17,12 @@ export class PlayersComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
 
+  mostrar: boolean = false;
+
   ngOnInit(): void {
       this.dtOptions = {
         pagingType: 'full_numbers',
-        pageLength: 5
+        pageLength: 25
       };
 
       this.playerlist.getPlayers().subscribe( (res: any) =>{
