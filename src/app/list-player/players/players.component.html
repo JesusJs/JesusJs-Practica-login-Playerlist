@@ -1,1 +1,30 @@
-<h1>HOLA MUNDO</h1>
+<div class="container mt-5">
+    <table datatable class="table table-striped table-bordered row-border hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Height feet</th>
+                <th>Height inches</th>
+                <th>Position</th>
+                <th>Weight</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let j of players">
+                <td>{{j.id}}| {{j.id == null? '-' : j.id}}</td>
+                <td>{{j.first_name}} {{j.first_name == null? '-' : j.first_name}}</td>
+                <td>{{j.last_name}} {{j.last_name == null? '-' : j.last_name}}</td>
+                <td>{{j.height_feet}} {{j.height_feet == null? '-' : j.height_feet}}</td>
+                <td>{{j.height_inches}} {{j.height_inches == null? '-' : j.height_inches}}</td>
+                <td [ngClass]="(j.position == 'C') ? 'pintaRojo': (j.position == 'F')  ? 'pintaAzul' :  (j.position == 'G') ? 'pintaVerde' : (j.position == 'null')? 'pintaGris': ''">{{j.position}}</td>
+                <td>{{j.weight_pounds}} {{j.weight_pounds == null? '-' : j.weight_pounds}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>
